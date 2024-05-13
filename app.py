@@ -8,6 +8,7 @@ from spotipy.oauth2 import SpotifyClientCredentials
 import chaocipher
 from chaocipher import encrypt_init, decrypt_init
 from DES_algorithm import runDES
+from letter_swap_decrypter import decrypt_message
 
 
 app = Flask(__name__)
@@ -192,6 +193,17 @@ def encryptDES():
 
 def is_hexadecimal(value):
     return all(c.isdigit() or c.lower() in 'abcdef' for c in value)
+
+@app.route('/cryptogram_solver/', methods=['GET', 'POST'])
+def cryptogram_solver():
+    default_cryptogram = 'aeuc dg bhlui gh ukgdcq, whn bkc ihlugdlui euvt whnziuvo lhzu fw euvtdcq whnziuvo vuii.'
+    if request.method == 'POST':
+        response = 'decrypting message'
+        message = request.form['cryptogram_text']
+        default_cryptogram = message
+        encrypted_package = decrypt_message(message)
+        return render_template('cryptogram_solver.html', default_cryptogram=default_cryptogram, decrypted_text=encrypted_package[0], elapsed=encrypted_package[1])
+    return render_template('cryptogram_solver.html', default_cryptogram=default_cryptogram)
 
 client_credentials_manager = SpotifyClientCredentials(spotify_key, spotify_secret)
 sp = spotipy.Spotify(client_credentials_manager=client_credentials_manager)

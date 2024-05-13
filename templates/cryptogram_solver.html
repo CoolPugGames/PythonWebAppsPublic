@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{% block title %}Cryptogram Solver{% endblock %}</h1>
+    <div class="center">
+    <p class="description">This app will try to solve a cryptogram. You can enter your own
+        ,use the one that is already printed here, or copy one printed below. At this point it doesn't
+        do so great with proper names or words longer than 10 letters.
+    </p>
+    <form method="POST">
+        <label for="cryptogram">Cryptogram Text:</label>
+        <!-- <input type="text" id="cryptogram_text" name="cryptogram_text"> -->
+        <textarea rows="5" cols="60" id="cryptogram_text" name="cryptogram_text">{{default_cryptogram}}</textarea>
+        <br>
+        <input class="center-button page-button" type="submit" value="Decrypt">
+    </form>
+    {% if decrypted_text %}
+    <form>
+        <label for="decrypted_message">Decrypted Message:</label>
+        <textarea rows="6" cols="70" readonly>{{decrypted_text}}</textarea>
+        <textarea rows="1" cols="70" readonly>Elapsed Time: {{elapsed}}</textarea>
+    </form>
+    {% endif %}
+    <h4>Try these cryptograms</h4>
+    <p>aeuc dg bhlui gh ukgdcq, whn bkc ihlugdlui euvt whnziuvo lhzu fw euvtdcq whnziuvo vuii.</p> 
+    <p>MVKCY MFV OCQRCUC RY CEJF VZFCN JNCEZC ENKRCP ZFEZ MRQQ MRY BRYHIVKP EYI MENP</p>
+    <p>Qb abg ghea gur fhcrevbe rlr bs pevgvpny cnffvivgl hcba gurfr rssbegf. Jr zhfg abg or nzovgvbhf. Jr pnaabg nfcver gb znfgrecvrprf. Jr znl pbagrag bhefryirf jvgu n wbl evqr va n cnvag obk.</p>
+    <p>Robo oxnc wi pybofob wowybklvo psbcd rsqr csobbk ohmebcsyx. S rkfo mbyccon dro bkxqo yp vsqrd, cebovi dro lbsqrdocd kxn locd yp kvv dro vybn rkc lesvd. Kxn, botysmsxq sx sdc qvybi, s qvknvi, qbkdopevvi, ryzopevvi zbki S wki coo sd kqksx.</p>
+    <p>HU XSJREUHVHUE GKS KDNOUHGQ RZ RDX ZSBBRF ISHUEY, FS WOQ RDXYSBASY GKS KHEKSYG GXHIDGS.</p>
+    </div>  
+{% endblock %}
