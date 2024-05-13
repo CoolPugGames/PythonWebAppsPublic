@@ -1,0 +1,11 @@
+
+/ROOT/
+    app.py
+    /STATIC/
+        /CSS/
+        /IMAGES/
+    /TEMPLATES/
+        index.html
+        other_pages.html
+ 
+ 

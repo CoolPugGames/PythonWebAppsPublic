@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+    <h1>{% block title %}Chaocipher{% endblock %}</h1>
+    <h2>Choose an action:</h2>
+    <button class="page-button" onclick="location.href='{{ url_for('encrypt') }}'">Encrypt</button>
+    <button class="page-button" onclick="location.href='{{ url_for('decrypt') }}'">Decrypt</button>
+
+</div>
+{% endblock %}
+

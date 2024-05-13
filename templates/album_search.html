@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+    <h1>{% block title %}Album Search{% endblock %}</h1>
+    <p class="description">This form will search Spotify for all albums/songs by a given artist, and then calculate the average length of their songs.</p>
+    <p class="description">Make sure to spell and capitalize the name the same way it is listed on Spotify.</p>
+    <form method="POST">
+        <!-- <table>
+            <tr>
+                <td>
+                    <label for="artist_name">Enter Band/Artist Name:</label>
+                </td>
+                <td>
+                    <input type="text" id="artist_name" name="artist_name">
+                </td>
+
+            </tr>
+        </table> -->
+        <label for="artist_name">Enter Band/Artist Name:</label>
+        <input type="text" id="artist_name" name="artist_name"> 
+        <br>
+        <input class="center-button page-button" type="submit" value="Get Albums">
+        <br>
+    </form>
+    {% if album_list %}
+    <div class="center">
+        <textarea rows="1" cols="50" readonly>Artist Name: {{artist_name}}</textarea>
+        <br>
+        <textarea rows="30" cols="100" readonly>Albums {{album_list}}</textarea>
+    </div>
+    {% endif %}
+</div>
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+    <h1>{% block title %}DES Algorithm{% endblock %}</h1>
+    <h2>Encrypt</h2>
+    {% if not encrypted_message %}
+    <p class="description">
+        Choose a 16 digit <b>key</b> with a hexadecimal value.
+    </p>
+    <p class="description">
+        You'll need the same key to decode the message, so don't forget it!
+    </p>
+
+    <form class = "form" method="POST">
+        <table>
+            <tr>
+                <td>
+                    <label class="c1" for="message">Your Message:</label>
+                </td>
+                <td>
+                    <textarea rows="3" cols="40" id="message" name="message"></textarea><br>
+
+                </td>
+            <!-- <input type="text" id="message" name="message" required><br> -->
+            </tr>
+            <tr>   
+                <td>
+                    <label class = "c1" for="key">Key:</label>
+
+                </td> 
+                <td>
+                    <input type="text" id="keyword" name="key"><br>
+
+                </td>
+            </tr>
+        </table>
+        <input class = "center-button page-button" type="submit" value="Encode"><br>
+
+      </form>
+    {% endif %}
+    {% if response %}  
+    <p id="response">{{response}}</p>
+    {% endif %}
+
+    {% if encrypted_message %}
+
+    <form class="form">
+          <textarea rows="4" cols="50" readonly>Encrypted Message: {{encrypted_message}}</textarea>
+          <br>
+          <textarea rows="1" cols="50" readonly>Key: {{key}}</textarea>
+          <table>
+            <tr>
+                <td>
+                    <a href="/encryptDES" class="center-button page-button">Try Again</a>
+                </td>
+                <td>
+                    <a href="/decryptDES" class="center-button page-button">Decrypt</a>
+                </td>
+            </tr>
+          </table>
+
+
+          <br>
+    </form>
+
+    {% endif %}
+</div>
+{% endblock %}
+

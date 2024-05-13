@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{% block title %}Hex Converter{% endblock %}</h1>
+    <div class="center">
+    <h3>Hex Converter</h3>
+    <form method="POST">
+        <label for="hex_color">Hex Color Code:</label>
+        <input type="text" id="hex_color" name="hex_color">
+        <br>
+        <br>
+        <input class="center-button page-button" type="submit" value="Convert">
+    </form>
+    {% if hex_color %}
+        <br>
+        <textarea rows="1" cols="50" readonly>Hex Color Code: {{hex_color}}</textarea>
+        <br>
+        <textarea rows="1" cols="50" readonly>RGB Color Code: {{rgb_color}}</textarea>
+    {% endif %}
+    </div>  
+{% endblock %}

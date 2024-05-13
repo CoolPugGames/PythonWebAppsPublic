@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h1> {% block title %}Classy Csv Converter{% endblock %} </h1>
+
+    <form action="/" method="post" enctype="multipart/form-data">
+        <label for="csvfile">Select a CSV file to upload:</label>
+        <input type="file" name="csvfile" id="csvfile">
+        <br>
+        <input type="submit" value="Upload">
+    </form>
+    {% if result %}
+        <p>Here's your processed CSV file:</p>
+        <a href="{{ result }}">Download CSV</a>
+    {% endif %}
+
+
+{% endblock %}

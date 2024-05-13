@@ -1,0 +1,16 @@
+Dockerfile
+README.md
+node_modules
+*.pyc
+*.pyo
+*.pyd
+__pycache__
+.pytest_cache
+
+.venv
+.vscode
+forms.py
+hex2rgb.py 
+notes.txt
+
+Downloads/

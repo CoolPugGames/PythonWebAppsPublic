@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <h1>{% block title %}Youtube Downloader{% endblock %}</h1>
+    <div class="center">
+        <p style="margin:auto">---instructions---</p>
+    <div class="instructions">
+
+        <p>by default, it will download a 720p file with video and audio <br>
+        if you want other options: add any of the following to the extras: <br>
+        <div class="indent">
+            to download a 1080p video (with no sound), add "-1080"<br>
+            to download mp3 audio file, add "-mp3"<br>
+            to download all 3 files, add "-all"<br>
+            to download a playlist, add "-playlist"<br>
+        </div>
+        <br>
+    </div>
+    <form method="POST">
+        <label for="link">Youtube Link:</label>
+        <input type="text" id="link" name="link">
+        <br>
+        <label for="extras">Extras:</label>
+        <input type="text" id="extras" name="extras">
+        <br>
+        <input class="center-button page-button" type="submit" value="submit">
+    </form>
+    {% if msg %}
+        <br>
+        <textarea rows="1" cols="50" readonly>Output: {{msg}}</textarea>
+        <br>
+
+    {% endif %}
+    </div>  
+{% endblock %}

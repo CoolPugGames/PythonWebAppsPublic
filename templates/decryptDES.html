@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+    <h1>{% block title %}DES Algorithm{% endblock %}</h1>
+    <h2>Decrypt</h2>
+    {% if not decrypted_message %}
+    <p class="description">
+        I hope you remembered the <b>key</b> from before.
+    </p>
+        <form class = "form" method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <label for="message">Encrypted Message:</label>
+                    </td>
+                    <td>
+                        <textarea rows="3" cols="40" id="message" name="message">{{prev_encrypted_message}}</textarea><br>
+
+                    </td>
+                <!-- <input type="text" id="message" name="message" required><br> -->
+                </tr>
+                <tr>   
+                    <td>
+                        <label for="key">Key:</label>
+
+                    </td> 
+                    <td>
+                        <textarea rows="1" cols="40" id="key" name="key">{{prev_key}}</textarea>
+
+                    </td>
+                </tr>
+            </table>
+            <table>
+                <tr><p>Was your original message in Roman (Ascii) letters?</p></tr>
+                <tr>
+                    <td>
+                    <input type="radio" id="yes" name="ascii" value="yes">
+                    <label for="yes">Yes</label>
+                    </td>
+                    <td>                    
+                        <input type="radio" id="no" name="ascii" value="no">
+                        <label for="no">No</label>
+                    </td>
+
+
+                </tr>
+            </table>
+
+            <input class = "center-button page-button" type="submit" value="Decode"><br>
+          </form>
+    {% endif %}
+    {% if decrypted_message %}
+    <form class="form">
+          <textarea rows="4" cols="50" readonly>Decrypted Message: {{decrypted_message}}</textarea>
+          <br>
+          <textarea rows="1" cols="50" readonly>Key: {{key}}</textarea>
+          <table>
+            <tr>
+                <td>
+                    <a href="/decryptDES" class="center-button page-button">Try Again</a>
+                </td>
+                <td>
+                    <a href="/encryptDES" class="center-button page-button">Encrypt</a>
+                </td>
+            </tr>
+          </table>
+        </form>
+
+    {% endif %}
+</div>
+{% endblock %}
+

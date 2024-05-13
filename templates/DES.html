@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="center">
+    <h1>{% block title %}DES Algorithm{% endblock %}</h1>
+    <h2>Choose an action:</h2>
+    <button class="page-button" onclick="location.href='{{ url_for('encryptDES') }}'">Encrypt</button>
+    <button class="page-button" onclick="location.href='{{ url_for('decryptDES') }}'">Decrypt</button>
+
+</div>
+{% endblock %}
+
