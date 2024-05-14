@@ -460,6 +460,7 @@ def decrypt_message(encrypted_message):
     # NOT_IN_TWO_LETTER_WORDS = []
     # MOST_COMMON_TWO_LETTER_WORDS = []
     # MOST_COMMON_THREE_LETTER_WORDS = []
+    time_limit = 16 # program will time out after time_limit * seconds
     final_message = ''
     start = time.perf_counter()
     key = "abcdefghijklmnopqrstuvwxyz0123456789 !@#$%^&*()-_+={}[]|:;'<>?,./\""
@@ -535,7 +536,7 @@ def decrypt_message(encrypted_message):
                     print(final_message)
                     print()
                     break
-        if time.perf_counter()-start > 10:
+        if time.perf_counter()-start > time_limit:
             final_message = 'Session Timed Out. Best guess so far: '+final_message
             return final_message, time.perf_counter() - start
         CURRENT_TEST_WORD_INDEX -= 1
